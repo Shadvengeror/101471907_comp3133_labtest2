@@ -1,0 +1,5 @@
+.details-wrapper { padding: 40px; display: flex; flex-direction: column; align-items: center; }
+.details-card { max-width: 800px; width: 100%; }
+.card-layout { display: flex; gap: 30px; padding: 20px; }
+.detail-image { width: 300px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+@media (max-width: 600px) { .card-layout { flex-direction: column; align-items: center; } }

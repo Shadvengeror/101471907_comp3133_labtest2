@@ -1,0 +1,40 @@
+<div class="details-wrapper" *ngIf="character">
+  <button mat-stroked-button color="primary" routerLink="/" style="margin-bottom: 20px;">
+    ← BACK TO CHARACTERS
+  </button>
+
+  <mat-card class="details-card">
+    <div class="card-layout">
+      <img [src]="character.image || 'https://placehold.co/300x400?text=No+Image'" [alt]="character.name" class="detail-image">
+      
+      <div class="detail-content">
+        <mat-card-header>
+          <mat-card-title><h1>{{ character.name }}</h1></mat-card-title>
+          <mat-card-subtitle><h2>{{ character.house || 'No House' }}</h2></mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item><strong>Species:</strong> {{ character.species }}</mat-list-item>
+            <mat-list-item><strong>Ancestry:</strong> {{ character.ancestry || 'Unknown' }}</mat-list-item>
+            <mat-list-item><strong>Wizard:</strong> {{ character.wizard ? 'Yes' : 'No' }}</mat-list-item>
+            <mat-list-item><strong>Actor:</strong> {{ character.actor }}</mat-list-item>
+          </mat-list>
+
+          <div class="wand-section" *ngIf="character.wand">
+            <h3>Wand Properties</h3>
+            <p>
+              <strong>Wood:</strong> {{ character.wand.wood || 'N/A' }} | 
+              <strong>Core:</strong> {{ character.wand.core || 'N/A' }} | 
+              <strong>Length:</strong> {{ character.wand.length || 'N/A' }}
+            </p>
+          </div>
+        </mat-card-content>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<div *ngIf="!character" class="details-wrapper">
+  <p>Loading character details...</p>
+</div>
